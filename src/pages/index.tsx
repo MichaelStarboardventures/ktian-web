@@ -1,4 +1,4 @@
-import { Editor } from '@starboard-ventures/pangu.ui.editor';
+import { Editor, Enabled } from '@starboard-ventures/pangu.ui.editor';
 import { useMemo } from 'react';
 import { history, useModel } from 'umi';
 
@@ -32,5 +32,9 @@ export default function IndexPage() {
   const { route } = useModel('use-routes');
   const retRoute = useRoute(route);
 
-  return <Editor data={retRoute?.content} page={true} enabled={true} />;
+  return (
+    <Editor data={retRoute?.content} page={true}>
+      <Enabled enabled={false} />
+    </Editor>
+  );
 }
