@@ -15,7 +15,7 @@ export async function render(oldRender: () => void) {
     params: { mainPage: 1 },
   });
 
-  if (!data) return;
+  if (!data?.length) return;
 
   const res: { path: string }[] = JSON.parse(data[0]?.routes);
 

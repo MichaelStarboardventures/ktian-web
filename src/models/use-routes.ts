@@ -22,7 +22,7 @@ export default function useRoutes() {
       params: { mainPage: 1 },
     });
 
-    if (!data) return;
+    if (!data?.length) return;
 
     setRoute(data[0]);
   }, []);
