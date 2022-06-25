@@ -1,7 +1,7 @@
 import { request } from '@/utils';
 import { history, IRoute } from 'umi';
 
-let extraRoutes: IRoute[];
+let extraRoutes: IRoute[] = [];
 
 export function patchRoutes({ routes }: { routes: IRoute[] }) {
   routes.forEach((route) => {
@@ -14,6 +14,8 @@ export async function render(oldRender: () => void) {
     method: 'get',
     params: { mainPage: 1 },
   });
+
+  if (!data) return;
 
   const res: { path: string }[] = JSON.parse(data[0]?.routes);
 
